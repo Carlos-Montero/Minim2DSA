@@ -52,8 +52,8 @@ public class List_Adapter extends ArrayAdapter<RowItem> {
         holder.textUrl.setText(rowItem.getUrlimage());
 
 
-        ShowList_follower showList_eetakemon = new ShowList_follower();
-        showList_eetakemon.setTextAndLogoOfRow(holder.textName,holder.textUrl);
+        ShowList_follower showList_follower = new ShowList_follower();
+        showList_follower.setTextOfRow(holder.textName,holder.textUrl);
 
         return convertView;
     }

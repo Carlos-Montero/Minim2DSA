@@ -1,19 +1,12 @@
 package dsa.eetac.upc.edu.minim2dsa;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.List;
-
-import dsa.eetac.upc.edu.minim2dsa.Backend.GlobalData;
 import dsa.eetac.upc.edu.minim2dsa.Client.ClientRetrofit;
 import dsa.eetac.upc.edu.minim2dsa.Client.RetroClient;
 import dsa.eetac.upc.edu.minim2dsa.Entity.Follower;
-import dsa.eetac.upc.edu.minim2dsa.Entity.JSONResponse;
 import dsa.eetac.upc.edu.minim2dsa.Entity.User;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,8 +30,8 @@ public class Activity2 extends AppCompatActivity {
 
         name = username.getText().toString();
 
-        globalData = (GlobalData) getApplication();
-        ClientRetrofit = RetroClient.getClientRetrofit(globalData);
+       // globalData = (GlobalData) getApplication();
+        ClientRetrofit = RetroClient.getClientRetrofit();
 
         Call<User> user = ClientRetrofit.user();
         user.enqueue(new Callback<User>() {

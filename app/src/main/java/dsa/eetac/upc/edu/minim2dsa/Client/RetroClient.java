@@ -1,16 +1,7 @@
 package dsa.eetac.upc.edu.minim2dsa.Client;
 
-import java.io.IOException;
-
-//import edu.upc.eetac.dsa.etackemongo.Backend.GlobalData;
-import dsa.eetac.upc.edu.minim2dsa.Backend.GlobalData;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import java.io.IOException;
 
 
 /**
@@ -21,7 +12,6 @@ public class RetroClient {
 
 
     public static final String BASE_URL = "http://api.github.com/";
-
 
     //Get Retrofit Instance
     private static Retrofit getRetrofitInstance(final GlobalData global) {

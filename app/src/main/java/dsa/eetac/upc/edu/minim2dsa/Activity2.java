@@ -22,6 +22,12 @@ import retrofit2.Response;
 public class Activity2 extends AppCompatActivity {
 
     String name;
+    String username;
+    String urlimage;
+    Integer repositories;
+    Integer following;
+    String followername;
+    String urlfollowerimage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

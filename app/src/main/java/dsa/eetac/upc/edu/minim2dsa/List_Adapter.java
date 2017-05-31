@@ -1,4 +1,4 @@
-package dsa.eetac.upc.edu.minim2dsa.Listas_View;
+package dsa.eetac.upc.edu.minim2dsa;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import dsa.eetac.upc.edu.minim2dsa.R;
 
 /**
  * Created by Carlos on 31/05/2017.
@@ -20,7 +19,7 @@ import dsa.eetac.upc.edu.minim2dsa.R;
 public class List_Adapter extends ArrayAdapter<RowItem> {
 
 
-
+    private String opción = null;
     private Context context;
 
 
@@ -30,8 +29,9 @@ public class List_Adapter extends ArrayAdapter<RowItem> {
     }
 
     private  class  ViewHolder{
+        ImageView imageView;
         TextView textName;
-        TextView textUrl;
+        TextView textLevel;
     }
 
     @Override
@@ -41,26 +41,15 @@ public class List_Adapter extends ArrayAdapter<RowItem> {
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         if(convertView == null) {
-            convertView = inflater.inflate(R.layout.activity_2, null);
+            convertView = inflater.inflate(R.layout.activity_entry, null);
             holder = new ViewHolder();
-            holder.textName = (TextView) convertView.findViewById(R.id.textView_superior);
-            holder.textUrl = (TextView) convertView.findViewById(R.id.textView_inferior);
+            holder.textName = (TextView) convertView.findViewById(R.id.nombreFollower);
+            holder.imageView = (ImageView) convertView.findViewById(R.id.imageView_entry);
             convertView.setTag(holder);
         }else
             holder=(ViewHolder)convertView.getTag();
-        holder.textName.setText(rowItem.getUsername());
-        holder.textUrl.setText(rowItem.getUrlimage());
-
-
-        ShowList_follower showList_follower = new ShowList_follower();
-        showList_follower.setTextOfRow(holder.textName,holder.textUrl);
-
+            holder.textName.setText(rowItem.getTitle());
+            holder.imageView.setImageResource(rowItem.getImageId());
         return convertView;
     }
-
-
-
-
-
-
 }

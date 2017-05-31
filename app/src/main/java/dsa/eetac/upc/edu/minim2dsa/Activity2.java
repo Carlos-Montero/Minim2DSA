@@ -2,96 +2,37 @@ package dsa.eetac.upc.edu.minim2dsa;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Toast;
-
-import dsa.eetac.upc.edu.minim2dsa.Client.ClientRetrofit;
-import dsa.eetac.upc.edu.minim2dsa.Client.RetroClient;
-import dsa.eetac.upc.edu.minim2dsa.Entity.Follower;
-import dsa.eetac.upc.edu.minim2dsa.Entity.User;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import java.util.ArrayList;
+import java.util.List;
+import android.widget.ListView;
+import android.widget.TextView;
 
 public class Activity2 extends AppCompatActivity {
 
-    String name;
-    String username;
-    String urlimage;
-    Integer repositories;
-    Integer following;
-    String followername;
-    String urlfollowerimage;
+    private GlobalData globalData = null;
+    private ListView listView;
+    List<RowItem> rowItems;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_2);
-        String username = getIntent().getStringExtra("username");
 
-        name = username.getText().toString();
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_2);
+            globalData = (GlobalData) getApplication();
+            User user = globalData.getUser();
+            rowItems = new ArrayList<RowItem>();
 
-       // globalData = (GlobalData) getApplication();
-        ClientRetrofit = RetroClient.getClientRetrofit();
-
-        Call<User> user = ClientRetrofit.user();
-        user.enqueue(new Callback<User>() {
-
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-
-                User user = response.body();
-                username.setText(user.getUsername());
-                urlimage.setText(user.getUrlimage());
-                repositories = user.getRepositories();
-                following = user.getFollowing();
-
+            TextView repos = (TextView) findViewById(R.id.textView_nrepo);
+            repos.setText(user.getRepositories());
+            TextView followers = (TextView) findViewById(R.id.textView_nfollow);
+            followers.setText(user.getFollowing());
+            for (int i = 0; i < globalData.getFollowerList().size(); i++){
+                RowItem item = new RowItem(R.drawable.man,globalData.getFollowerList().get(i).getFollowername());
+                rowItems.add(item);
             }
-
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
-                call.cancel();
-                Toast.makeText(Activity2.this, "Can't get parameters", Toast.LENGTH_LONG).show();
-
-            }
-
-            Call<Follower> follower = ClientRetrofit.followers();
-            follower.enqueue(new Callback<Follower>() {
-
-                @Override
-                public void onResponse(Call<Follower> call, Response<Follower> response) {
-
-                    Follower follower = response.body();
-                    followername.setText(follower.getUsername());
-                    urlfollowerimage.setText(follower.getUrlimage());
-                }
-
-                @Override
-                public void onFailure(Call<User> call, Throwable t) {
-                    call.cancel();
-                    Toast.makeText(Activity2.this, "Can't get parameters", Toast.LENGTH_LONG).show();
-
-                }
-
-
-
-
-
-
-
-
-
-
-
-
-
-        });
-
+            listView = (ListView) findViewById(R.id.list);
+            List_Adapter adapter = new List_Adapter(this,R.layout.activity_entry,rowItems);
+            listView.setAdapter(adapter);
+        }
     }
 
-
-
-
-
-
-}
-}

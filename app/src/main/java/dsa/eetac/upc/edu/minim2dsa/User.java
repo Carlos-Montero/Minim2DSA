@@ -1,6 +1,5 @@
-package dsa.eetac.upc.edu.minim2dsa.Entity;
+package dsa.eetac.upc.edu.minim2dsa;
 
-import java.util.List;
 
 /**
  * Created by Carlos on 31/05/2017.
@@ -10,10 +9,10 @@ public class User {
 
     private String username;
     private String urlimage;
-    private Integer repositories;
-    private Integer following;
+    private String repositories;
+    private String following;
 
-    public User(String username, String urlimage, Integer repositories, Integer following, List<Follower> followers) {
+    public User(String username, String urlimage, String repositories, String following) {
         this.username = username;
         this.urlimage = urlimage;
         this.repositories = repositories;
@@ -37,19 +36,19 @@ public class User {
         this.urlimage = urlimage;
     }
 
-    public Integer getRepositories() {
+    public String getRepositories() {
         return repositories;
     }
 
-    public void setRepositories(Integer repositories) {
+    public void setRepositories(String repositories) {
         this.repositories = repositories;
     }
 
-    public Integer getFollowing() {
+    public String getFollowing() {
         return following;
     }
 
-    public void setFollowing(Integer following) {
+    public void setFollowing(String following) {
         this.following = following;
     }
 

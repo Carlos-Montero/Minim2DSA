@@ -11,40 +11,19 @@
         android:layout_height="100dp"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        android:contentDescription="@string/description_of_the_image"
+        android:contentDescription="description_of_the_image"
         android:src="@android:drawable/ic_menu_gallery"/>
 
     <TextView
-        android:id="@+id/textView_superior"
+        android:id="@+id/nombreFollower"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView_inferior"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textView_inferior"
-        android:layout_marginTop="16dp"
         android:fontFamily="casual"
         android:text="Large Text"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:targetApi="jelly_bean" />
-
-    <TextView
-        android:id="@+id/textView_inferior"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView_entry"
-        android:layout_marginBottom="13dp"
-        android:layout_marginLeft="104dp"
-        android:layout_marginStart="104dp"
-        android:layout_toEndOf="@+id/imageView_entry"
-        android:layout_toRightOf="@+id/imageView_entry"
-        android:fontFamily="casual"
-        android:text="Small Text"
-        android:textColor="@color/colorPrimary"
-        android:textSize="16sp"
-        tools:targetApi="jelly_bean" />
-
-
-
+        tools:targetApi="jelly_bean"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

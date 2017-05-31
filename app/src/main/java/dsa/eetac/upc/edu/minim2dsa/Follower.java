@@ -1,4 +1,4 @@
-package dsa.eetac.upc.edu.minim2dsa.Entity;
+package dsa.eetac.upc.edu.minim2dsa;
 
 /**
  * Created by Carlos on 31/05/2017.

@@ -21,18 +21,13 @@ import retrofit2.Response;
 
 public class Activity2 extends AppCompatActivity {
 
+    String name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
         String username = getIntent().getStringExtra("username");
-
-
-        //public void infouser(View view) {
-
-       // final GlobalData globalData = (GlobalData) getApplication();
-
-        username.setError(null);
 
         name = username.getText().toString();
 
@@ -40,7 +35,7 @@ public class Activity2 extends AppCompatActivity {
         ClientRetrofit = RetroClient.getClientRetrofit(globalData);
 
         Call<User> user = ClientRetrofit.user();
-        quest.enqueue(new Callback<User>() {
+        user.enqueue(new Callback<User>() {
 
             @Override
             public void onResponse(Call<User> call, Response<User> response) {

@@ -31,7 +31,7 @@ public class RetroClient {
         //clientRetrofit = retrofit.create(ClientRetrofit.class);
 
         //Get API service
-   /public static ClientRetrofit getClientRetrofit(GlobalData globaldata){
+    public static ClientRetrofit getClientRetrofit(GlobalData globaldata){
 
 
         return getRetrofitInstance(globaldata).create(ClientRetrofit.class);
